@@ -250,11 +250,7 @@ section .title::before {
 
 /* --------------------------------------------------------------------------------------------------- */
 /* Text-to-music */
-.prompt {
-    position: relative;
-    overflow: hidden;
-}
-
+/* Shapes */
 .shape1,
 .shape2,
 .shape3 {
@@ -290,6 +286,12 @@ section .title::before {
     bottom: -4rem;
 }
 
+/* Main section */
+.prompt {
+    position: relative;
+    overflow: hidden;
+}
+
 .prompt .container {
     display: flex;
     flex-direction: column;
@@ -312,7 +314,7 @@ section .title::before {
     background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
     background-size: 30px 30px;
     background-position: -5px -5px;
-    position:relative;
+    position: relative;
     z-index: 2;
 }
 
