@@ -192,9 +192,11 @@ section .title::before {
     overflow: hidden;
     transition: 0.2s;
 }
-.card:hover{
+
+.card:hover {
     box-shadow: 0 0px 35px 0 rgba(255, 94, 247, 1), 0 5px 15px 0 rgba(2, 245, 255, 1);
 }
+
 .card .poster {
     position: relative;
     display: flex;
@@ -240,8 +242,123 @@ section .title::before {
     font-size: 20px;
     color: #fff;
 }
-.card:hover .details
-{
+
+.card:hover .details {
     font-size: 25px;
     bottom: 40px;
+}
+
+/* --------------------------------------------------------------------------------------------------- */
+/* Text-to-music */
+.prompt {
+    position: relative;
+    overflow: hidden;
+}
+
+.shape1,
+.shape2,
+.shape3 {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(190px);
+    z-index: 1;
+}
+
+.shape1 {
+    width: 250px;
+    height: 250px;
+    background-color: #d8d027;
+    top: 0;
+    left: -1.5rem;
+}
+
+.shape2,
+.shape3 {
+    width: 300px;
+    height: 300px;
+}
+
+.shape2 {
+    background-color: #002fff;
+    top: 3rem;
+    right: 5.5rem;
+}
+
+.shape3 {
+    background-color: #cc0081;
+    left: 65.5rem;
+    bottom: -4rem;
+}
+
+.prompt .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    height: 100%;
+    align-items: center;
+}
+
+.prompt-div {
+    width: 70%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* box-shadow: 0 0px 35px rgba(255, 255, 255, 0.25); */
+    border: 1px solid grey;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+    background-size: 30px 30px;
+    background-position: -5px -5px;
+    position:relative;
+    z-index: 2;
+}
+
+.prompt-div h1 {
+    margin-bottom: 20px;
+}
+
+.prompt-form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-evenly; */
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.prompt-form .prompt-input {
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: #101920;
+    border: 1px solid #3e3e3e;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 4rem;
+}
+
+.slider-div {
+    width: 100%;
+    margin-bottom: 4rem;
+}
+
+.slider-div input {
+    width: 100%;
+    accent-color: orange;
+}
+
+.duration-div {
+    font-weight: bold;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.prompt-form .btn {
+    width: 100%;
 }
