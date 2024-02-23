@@ -364,3 +364,52 @@ section .title::before {
 .prompt-form .btn {
     width: 100%;
 }
+
+/* --------------------------------------------------------------------------------------------------- */
+/* Genre to music */
+.genre-div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+
+.genre-div div {
+    margin: 10px;
+}
+
+.genre-div div label {
+    cursor: pointer;
+}
+
+.genre-div div label input[type='checkbox'] {
+    display: none;
+}
+
+.genre-div div label span {
+    position: relative;
+    display: inline-block;
+    background: #101920;
+    padding: 15px 30px;
+    color: white;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+    overflow: hidden;
+}
+.genre-div div label span:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(64, 64, 64, 0.126);
+}
+.genre-div div label input[type='checkbox']:checked ~ span
+    {
+        background:white;
+        color: black;
+    }
