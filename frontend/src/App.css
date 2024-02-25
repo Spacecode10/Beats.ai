@@ -31,9 +31,11 @@ body {
 
 section {
     padding: 100px 0;
-    height: 100vh;
+    /* height: 100vh; */
     width: 100vw;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 section .title {
@@ -70,8 +72,15 @@ section .title::before {
     background-color: transparent;
     position: fixed;
     z-index: 999;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.18);
+    transition: 0.3s;
+    /* backdrop-filter: blur(85px);
+    background: rgba(0, 0, 0, 0.557); */
 }
-
+.navbar.sticky {
+    background-color: rgba(4, 11, 19, 0.5);
+    backdrop-filter: blur(85px);
+}
 .navbar .container {
     display: flex;
     align-items: center;
@@ -93,6 +102,7 @@ section .title::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
     /*------------------- pattern -------------------------*/
     background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
     background-size: 30px 30px;
@@ -179,7 +189,7 @@ section .title::before {
 .music-option-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     gap: 5rem;
 }
@@ -272,6 +282,7 @@ section .title::before {
 
 .shape1 {
     background-color: #002fff;
+    /* background-color: #cc0081; */
     top: 10rem;
     left: -1.5rem;
 }
@@ -284,7 +295,7 @@ section .title::before {
 
 .shape3 {
     background-color: #cc0081;
-    left: 65.5rem;
+    right: 10.5rem;
     bottom: 4rem;
 }
 
@@ -296,8 +307,8 @@ section .title::before {
 
 /* Main section */
 .prompt {
-    position: relative;
-    overflow: hidden;
+    height: 100vh;
+    /* padding-bottom: 44px; */
 }
 
 .prompt .container {
@@ -375,6 +386,10 @@ section .title::before {
 
 /* --------------------------------------------------------------------------------------------------- */
 /* Genre to music */
+.genre {
+    min-height: 100vh;
+}
+
 .genre .container {
     display: flex;
     flex-direction: column;
@@ -384,6 +399,7 @@ section .title::before {
 
 .genre .container h1 {
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .genre .prompt-div {
@@ -394,12 +410,13 @@ section .title::before {
     width: 100%;
     display: flex;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     flex-wrap: wrap;
 }
 
 .genre-div div {
     margin: 10px;
+    text-align: center;
 }
 
 .genre-div div label {
@@ -421,6 +438,7 @@ section .title::before {
     transition: 0.3s;
     user-select: none;
     overflow: hidden;
+    width: 158px;
 }
 
 .genre-div div label span:before {
@@ -441,4 +459,118 @@ section .title::before {
 .genre .btn {
     width: 100%;
     margin-top: 5rem;
+}
+
+/* ----------------------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    section .title {
+        font-size: 2.5rem;
+    }
+
+    section .title::before {
+        width: 350px;
+    }
+
+    .hero-content .text-2 {
+        font-size: 4rem;
+        line-height: 4.5rem;
+    }
+
+    .hero-content .text-1 {
+        font-size: 1.3rem;
+    }
+
+    .music-option-wrapper {
+        gap: 3rem;
+    }
+
+    .prompt-div {
+        width: 85%;
+    }
+}
+
+@media (max-width: 767px) {
+    section .title {
+        font-size: 2rem;
+    }
+
+    section .title::before {
+        width: 250px;
+    }
+
+    .hero-content .text-2 {
+        font-size: 3.5rem;
+        line-height: 3.5rem;
+    }
+
+    .hero-content .text-1 {
+        font-size: 1.1rem;
+    }
+
+    .prompt-div {
+        width: 90%;
+    }
+
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    section .title {
+        font-size: 2rem;
+    }
+
+    section .title::before {
+        width: 170px;
+    }
+
+    .hero-content .text-2 {
+        font-size: 3rem;
+        line-height: 3.5rem;
+    }
+
+    .hero-content .text-1 {
+        font-size: 1rem;
+    }
+
+    .card {
+        width: 250px;
+        height: 350px;
+    }
+
+    .prompt-div {
+        width: 100%;
+        padding: 20px 20px;
+    }
+
+    .prompt-form .prompt-input {
+        margin-bottom: 2rem;
+        font-size: 17px;
+    }
+
+    .duration-div h3 {
+        font-size: 17px;
+    }
+
+    #slider-value {
+        font-size: 17px;
+    }
+
+    .slider-div {
+        margin-bottom: 3rem;
+    }
+
+    .genre-div div label span {
+        font-size: 16px;
+        width: 140px;
+    }
+    .genre .btn{
+        margin-top: 2rem;
+    }
+    .genre .container
+    {
+        gap: 3rem;
+    }
 }

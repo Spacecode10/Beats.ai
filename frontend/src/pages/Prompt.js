@@ -18,7 +18,7 @@ export default function Prompt() {
       <div className='shape3'></div>
       <div className='container'>
         <div className="prompt-div">
-          <h1>Generate music from text</h1>
+          <h1>Text to music</h1>
           <form className='prompt-form' onSubmit={handleSubmit}>
             <input type="text" className='prompt-input' placeholder='"A retro melody with piano and sitar"'
               onChange={(e) => setFormData({ ...formData, prompt: e.target.value })} />

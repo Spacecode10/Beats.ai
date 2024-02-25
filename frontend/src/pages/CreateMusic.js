@@ -2,6 +2,7 @@ import React from 'react'
 import Prompt from '../images/text.jpg'
 import Genre from '../images/genre2.jpg'
 import Instrument from '../images/instrument.jpg'
+import { Link } from "react-router-dom";
 
 export default function CreateMusic() {
   return (
@@ -9,7 +10,7 @@ export default function CreateMusic() {
       <div className="container">
         <h2 className='title'>Choose how you want to generate</h2>
         <div className='music-option-wrapper'>
-          <a href="/text_to_music">
+          <Link to='/text_to_music'>
             <div className='card'>
               <div className="poster">
                 <img src={Prompt} alt="" />
@@ -18,8 +19,8 @@ export default function CreateMusic() {
                 <h3>Text-to-Music</h3>
               </div>
             </div>
-          </a>
-          <a href="/genre_to_music">
+          </Link>
+          <Link to="/genre_to_music">
             <div className='card'>
               <div className="poster">
                 <img src={Genre} alt="" />
@@ -28,8 +29,8 @@ export default function CreateMusic() {
                 <h3>Genre-to-music</h3>
               </div>
             </div>
-          </a>
-          <a href="/instrument_to_music">
+          </Link>
+          <Link to={"/instrument_to_music"}>
             <div className='card'>
               <div className="poster">
                 <img src={Instrument} alt="" />
@@ -38,7 +39,7 @@ export default function CreateMusic() {
                 <h3>Instrument-to-music</h3>
               </div>
             </div>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
