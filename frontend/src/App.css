@@ -367,6 +367,15 @@ section .title::before {
 
 /* --------------------------------------------------------------------------------------------------- */
 /* Genre to music */
+.genre .container{
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    height: 100%;
+}
+.genre .prompt-div{
+    width: 100%;
+}
 .genre-div {
     width: 100%;
     display: flex;
@@ -374,7 +383,6 @@ section .title::before {
     /* justify-content: space-between; */
     flex-wrap: wrap;
 }
-
 .genre-div div {
     margin: 10px;
 }
@@ -399,7 +407,8 @@ section .title::before {
     user-select: none;
     overflow: hidden;
 }
-.genre-div div label span:before{
+
+.genre-div div label span:before {
     content: '';
     position: absolute;
     top: 0;
@@ -408,8 +417,12 @@ section .title::before {
     height: 50%;
     background: rgba(64, 64, 64, 0.126);
 }
-.genre-div div label input[type='checkbox']:checked ~ span
-    {
-        background:white;
-        color: black;
-    }
+
+.genre-div div label input[type='checkbox']:checked~span {
+    background: white;
+    color: black;
+}
+.genre .btn{
+    width: 100%;
+    margin-top: 5rem;
+}

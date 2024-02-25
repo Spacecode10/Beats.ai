@@ -10,34 +10,34 @@ export default function CreateMusic() {
         <h2 className='title'>Choose how you want to generate</h2>
         <div className='music-option-wrapper'>
           <a href="/text_to_music">
-          <div className='card'>
-            <div className="poster">
-              <img src={Prompt} alt="" />
+            <div className='card'>
+              <div className="poster">
+                <img src={Prompt} alt="" />
+              </div>
+              <div className="details">
+                <h3>Text-to-Music</h3>
+              </div>
             </div>
-            <div className="details">
-              <h3>Text-to-Music</h3>
-            </div>
-          </div>
           </a>
           <a href="/genre_to_music">
-          <div className='card'>
-            <div className="poster">
-              <img src={Genre} alt="" />
+            <div className='card'>
+              <div className="poster">
+                <img src={Genre} alt="" />
+              </div>
+              <div className="details">
+                <h3>Genre-to-music</h3>
+              </div>
             </div>
-            <div className="details">
-              <h3>Genre-to-music</h3>
-            </div>
-          </div>
           </a>
           <a href="/instrument_to_music">
-          <div className='card'>
-            <div className="poster">
-              <img src={Instrument} alt="" />
+            <div className='card'>
+              <div className="poster">
+                <img src={Instrument} alt="" />
+              </div>
+              <div className="details">
+                <h3>Instrument-to-music</h3>
+              </div>
             </div>
-            <div className="details">
-              <h3>Instrument-to-music</h3>
-            </div>
-          </div>
           </a>
         </div>
       </div>
