@@ -28,9 +28,12 @@ export default function Genre() {
 
   return (
     <section className='genre'>
+      <div className='shape1'></div>
+      <div className='shape2'></div>
+      <div className='shape3'></div>
       <div className='container'>
         <div>
-          <h1>Select genres</h1>
+          <h1>Genre to music</h1>
           <form action="" onSubmit={handleSubmit}>
             <div className="genre-div">
               {genresData.genres.map(genre => (

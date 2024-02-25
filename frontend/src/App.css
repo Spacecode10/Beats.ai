@@ -138,6 +138,7 @@ section .title::before {
     border-radius: 1rem;
     border: none;
     position: relative;
+    z-index: 1;
     transition: 0.3s;
     background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(255, 94, 247, 1) 17.8%, rgba(2, 245, 255, 1) 100.2%);
 }
@@ -213,7 +214,7 @@ section .title::before {
     height: 100%;
     background: linear-gradient(0deg, #000000 50%, transparent);
     z-index: 1;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 /* .card:hover .poster::before {
@@ -222,7 +223,7 @@ section .title::before {
 
 .card .poster img {
     width: 100%;
-    transition: 0.5s;
+    transition: 0.2s;
 }
 
 .card:hover .poster img {
@@ -238,7 +239,7 @@ section .title::before {
     padding: 20px;
     width: 100%;
     z-index: 2;
-    transition: 0.5s;
+    transition: 0.2s;
     font-size: 20px;
     color: #fff;
 }
@@ -253,37 +254,44 @@ section .title::before {
 /* Shapes */
 .shape1,
 .shape2,
-.shape3 {
+.shape3,
+.shape4 {
     position: absolute;
     border-radius: 50%;
     filter: blur(190px);
-    z-index: 1;
+    z-index: -2;
 }
 
-.shape1 {
-    width: 250px;
-    height: 250px;
-    background-color: #d8d027;
-    top: 0;
-    left: -1.5rem;
-}
-
+.shape1,
 .shape2,
-.shape3 {
+.shape3,
+.shape4 {
     width: 300px;
     height: 300px;
 }
 
+.shape1 {
+    background-color: #002fff;
+    top: 10rem;
+    left: -1.5rem;
+}
+
 .shape2 {
     background-color: #002fff;
-    top: 3rem;
+    top: 10rem;
     right: 5.5rem;
 }
 
 .shape3 {
     background-color: #cc0081;
     left: 65.5rem;
-    bottom: -4rem;
+    bottom: 4rem;
+}
+
+.shape4 {
+    background-color: #cc5200;
+    left: 6.5rem;
+    bottom: 4rem;
 }
 
 /* Main section */
@@ -367,15 +375,21 @@ section .title::before {
 
 /* --------------------------------------------------------------------------------------------------- */
 /* Genre to music */
-.genre .container{
+.genre .container {
     display: flex;
     flex-direction: column;
     gap: 5rem;
     height: 100%;
 }
-.genre .prompt-div{
+
+.genre .container h1 {
+    text-align: center;
+}
+
+.genre .prompt-div {
     width: 100%;
 }
+
 .genre-div {
     width: 100%;
     display: flex;
@@ -383,6 +397,7 @@ section .title::before {
     /* justify-content: space-between; */
     flex-wrap: wrap;
 }
+
 .genre-div div {
     margin: 10px;
 }
@@ -422,7 +437,8 @@ section .title::before {
     background: white;
     color: black;
 }
-.genre .btn{
+
+.genre .btn {
     width: 100%;
     margin-top: 5rem;
 }
