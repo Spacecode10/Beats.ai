@@ -1,16 +1,40 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
 
 export default function Prompt() {
-  const [time, setTime] = useState(10);
+  const [time, setTime] = useState('10');
   const [formData, setFormData] = useState({
     prompt: '',
     duration: time
   })
+  const [audioSrc, setAudioSrc] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData);
+    try {
+      const response = await axios.post('http://localhost:5000/api/prompt', 
+        formData
+      , {
+        responseType: 'blob', // Specify response type as blob
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      setAudioSrc(url); // Set the audio source
+    } catch (error) {
+      console.error('Error fetching audio:', error);
+    }
   };
+  useEffect(() => {
+    // Update formData.duration whenever time changes
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      duration: time
+    }));
+  }, [time]);
   return (
     <section className='prompt'>
       <div className='shape1'></div>
@@ -32,7 +56,11 @@ export default function Prompt() {
             <button className='btn' type='submit'>Generate</button>
           </form>
         </div>
-        <div className="prompt-div"></div>
+        <div className="prompt-div">
+        {audioSrc && (
+          <audio controls src={audioSrc} />
+      )}
+        </div>
       </div>
     </section>
   )
