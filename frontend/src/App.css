@@ -77,10 +77,12 @@ section .title::before {
     /* backdrop-filter: blur(85px);
     background: rgba(0, 0, 0, 0.557); */
 }
+
 .navbar.sticky {
     background-color: rgba(4, 11, 19, 0.5);
     backdrop-filter: blur(85px);
 }
+
 .navbar .container {
     display: flex;
     align-items: center;
@@ -458,7 +460,7 @@ section .title::before {
 
 .genre .btn {
     width: 100%;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
 }
 
 /* ----------------------------------------------------------------------------------------- */
@@ -566,11 +568,11 @@ section .title::before {
         font-size: 16px;
         width: 140px;
     }
-    .genre .btn{
+
+    /* .genre .btn{
         margin-top: 2rem;
-    }
-    .genre .container
-    {
+    } */
+    .genre .container {
         gap: 3rem;
     }
 }

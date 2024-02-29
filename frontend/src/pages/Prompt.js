@@ -7,11 +7,13 @@ export default function Prompt() {
     prompt: '',
     duration: time
   })
+  const [isLoading,setisLoading]=useState(false)
   const [audioSrc, setAudioSrc] = useState('');
 
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData);
+    setisLoading(true)
     try {
       const response = await axios.post('http://localhost:5000/api/prompt', 
         formData
@@ -23,7 +25,8 @@ export default function Prompt() {
       });
 
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      setAudioSrc(url); // Set the audio source
+      setAudioSrc(url); // Set the audio source4
+      setisLoading(false)
     } catch (error) {
       console.error('Error fetching audio:', error);
     }
@@ -57,6 +60,7 @@ export default function Prompt() {
           </form>
         </div>
         <div className="prompt-div">
+        {isLoading?<div>Loading...</div>:''}
         {audioSrc && (
           <audio controls src={audioSrc} />
       )}
