@@ -31,7 +31,7 @@ export default function Instrument() {
     console.log(formData);
     setisLoading(true)
     try {
-      const response = await axios.post('http://localhost:5000/api/prompt', 
+      const response = await axios.post('http://localhost:5000/api/instrument', 
         formData
       , {
         responseType: 'blob', // Specify response type as blob

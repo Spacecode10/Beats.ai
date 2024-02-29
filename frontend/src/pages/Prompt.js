@@ -54,7 +54,7 @@ export default function Prompt() {
               <span id="slider-value">{time} Sec</span>
             </div>
             <div className='slider-div'>
-              <input type="range" min="1" max="30" value={time} onChange={(e) => setTime(e.target.value)} />
+              <input type="range" min="5" max="30" value={time} onChange={(e) => setTime(e.target.value)} />
             </div>
             <button className='btn' type='submit'>Generate</button>
           </form>
