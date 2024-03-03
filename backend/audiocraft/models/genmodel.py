@@ -121,6 +121,7 @@ class BaseGenModel(ABC):
         attributes = [
             ConditioningAttributes(text={'description': description})
             for description in descriptions]
+        print("######ATTRIBUTES",attributes)
 
         if prompt is not None:
             if descriptions is not None:
@@ -143,7 +144,10 @@ class BaseGenModel(ABC):
         """
         descriptions: tp.List[tp.Optional[str]] = [None] * num_samples
         attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions, None)
+        #print("################### attributes", attributes)
+        #print("################### prompttokens", prompt_tokens)
         tokens = self._generate_tokens(attributes, prompt_tokens, progress)
+        #print("##########TOKENS",tokens)
         if return_tokens:
             return self.generate_audio(tokens), tokens
         return self.generate_audio(tokens)
@@ -156,9 +160,13 @@ class BaseGenModel(ABC):
             descriptions (list of str): A list of strings used as text conditioning.
             progress (bool, optional): Flag to display progress of the generation process. Defaults to False.
         """
+        # print("################## value ",descriptions[0])
         attributes, prompt_tokens = self._prepare_tokens_and_attributes(descriptions, None)
+        print("################# ATTRIBUTES",attributes)
+        print("############## PROMT_TOKEN",prompt_tokens)
         assert prompt_tokens is None
         tokens = self._generate_tokens(attributes, prompt_tokens, progress)
+        print("################## token size",tokens)
         if return_tokens:
             return self.generate_audio(tokens), tokens
         return self.generate_audio(tokens)

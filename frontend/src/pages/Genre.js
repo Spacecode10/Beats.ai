@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import genresData from '../jsonFlies/genres.json';
 import axios from 'axios';
 
 export default function Genre() {
-  const [time, setTime] = useState('10');
+  
   const [formData, setFormData] = useState({
     genres: [],
-    duration: time
+    duration: '10'
   });
   const [isLoading,setisLoading]=useState(false)
   const [audioSrc, setAudioSrc] = useState('');
@@ -31,29 +31,30 @@ export default function Genre() {
     console.log(formData);
     setisLoading(true)
     try {
-      const response = await axios.post('http://localhost:5000/api/prompt', 
+      const response = await axios.post('http://localhost:5000/api/genre', 
         formData
       , {
-        responseType: 'blob', // Specify response type as blob
+        responseType: 'blob',
         headers: {
           'Content-Type': 'application/json',
         }
       });
-
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      setAudioSrc(url); // Set the audio source
+      setAudioSrc(url); 
       setisLoading(false)
     } catch (error) {
       console.error('Error fetching audio:', error);
     }
   };
-  useEffect(() => {
-    // Update formData.duration whenever time changes
+
+  const handleTimeChange = (e) => {
+    const newTime = e.target.value;
     setFormData(prevFormData => ({
       ...prevFormData,
-      duration: time
+      duration: newTime
     }));
-  }, [time]);
+  };
+
   return (
     <section className='genre'>
       <div className='shape1'></div>
@@ -75,10 +76,10 @@ export default function Genre() {
             </div>
             <div className='duration-div'>
               <h3>Duration</h3>
-              <span id="slider-value">{time} Sec</span>
+              <span id="slider-value">{formData.duration} Sec</span>
             </div>
             <div className='slider-div'>
-              <input type="range" min="1" max="30" value={time} onChange={(e) => setTime(e.target.value)} />
+              <input type="range" min="5" max="30" value={formData.duration} onChange={handleTimeChange} />
             </div>
             <button className='btn' type='submit'>Generate</button>
           </form>

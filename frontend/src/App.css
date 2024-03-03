@@ -362,7 +362,6 @@ section .title::before {
     border: 1px solid #3e3e3e;
     color: white;
     font-size: 18px;
-    margin-bottom: 4rem;
 }
 
 .slider-div {
@@ -464,6 +463,83 @@ section .title::before {
 }
 
 /* ----------------------------------------------------------------------------------------- */
+/* Music wave */
+.music {
+    width: 90%;
+    max-width: 900px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(red, 0, 0, 0.4);
+    background: #fff;
+    color: #555;
+    border-radius: 8px;
+}
+
+.track {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.track img {
+    width: 70px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.track div {
+    flex: 1;
+}
+
+/* ------------------------------------------------------------------------------------------ */
+.input-division {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin-bottom: 4rem;
+}
+.input-division button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: #101920;
+    color: white;
+    font-size: 18px;
+    position: absolute;
+    height:80%;
+    right: 10px;
+    top: 10%;
+    cursor: pointer;
+}
+/* ----------------------------------------------------------------------------------------- */
+/* Audio tag */
+#audiotag{
+    
+        /* background: radial-gradient(circle farthest-corner at 10% 20%, rgba(2, 245, 255, 1) 17.8%, rgba(255, 94, 247, 1) 100.2%); */
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 80%;
+}
+audio::-webkit-media-controls-panel {
+    /* background: radial-gradient(circle farthest-corner at 10% 20%, rgba(2, 245, 255, 1) 17.8%, rgba(255, 94, 247, 1) 100.2%); */
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+    border:none;
+   
+  }
+  
+  audio::-webkit-media-controls-timeline {
+    /* background-color: #B1D4E0; */
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+/* ----------------------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
     section .title {
         font-size: 2.5rem;
@@ -548,10 +624,11 @@ section .title::before {
     }
 
     .prompt-form .prompt-input {
-        margin-bottom: 2rem;
         font-size: 17px;
     }
-
+    .input-division{
+        margin-bottom: 2rem;
+    }
     .duration-div h3 {
         font-size: 17px;
     }

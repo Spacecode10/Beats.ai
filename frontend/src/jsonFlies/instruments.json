@@ -1,13 +1,16 @@
 {
-    "instruments": [
-      "Guitar",
-      "Drums",
-      "Piano",
-      "Violin",
-      "Flute",
-      "Tabla",
-      "Sitar",
-      "Trumpet"
-    ]
-  }
-  
+  "instruments": [
+    "Guitar",
+    "Drums",
+    "Piano",
+    "Violin",
+    "Flute",
+    "Sitar",
+    "Trumpet",
+    "Indian Drums",
+    "Saxophone",
+    "Accordian",
+    "Harp",
+    "Harmonium"
+  ]
+}

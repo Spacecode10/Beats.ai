@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import instrumentsData from '../jsonFlies/instruments.json';
 import axios from 'axios';
 
 export default function Instrument() {
-  const [time, setTime] = useState('10');
+
   const [formData, setFormData] = useState({
     instruments: [],
-    duration: time
+    duration: '10'
   });
-  const [isLoading,setisLoading]=useState(false)
+  const [isLoading, setisLoading] = useState(false)
   const [audioSrc, setAudioSrc] = useState('');
 
   const handleCheckboxChange = (e) => {
@@ -26,34 +26,35 @@ export default function Instrument() {
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     setisLoading(true)
     try {
-      const response = await axios.post('http://localhost:5000/api/prompt', 
+      const response = await axios.post('http://localhost:5000/api/instrument',
         formData
-      , {
-        responseType: 'blob', // Specify response type as blob
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
-
+        , {
+          responseType: 'blob',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      setAudioSrc(url); // Set the audio source
+      setAudioSrc(url);
       setisLoading(false)
     } catch (error) {
       console.error('Error fetching audio:', error);
     }
   };
-  useEffect(() => {
-    // Update formData.duration whenever time changes
+
+  const handleTimeChange = (e) => {
+    const newTime = e.target.value;
     setFormData(prevFormData => ({
       ...prevFormData,
-      duration: time
+      duration: newTime
     }));
-  }, [time]);
+  };
+
   return (
     <section className='genre'>
       <div className='shape1'></div>
@@ -75,19 +76,19 @@ export default function Instrument() {
             </div>
             <div className='duration-div'>
               <h3>Duration</h3>
-              <span id="slider-value">{time} Sec</span>
+              <span id="slider-value">{formData.duration} Sec</span>
             </div>
             <div className='slider-div'>
-              <input type="range" min="1" max="30" value={time} onChange={(e) => setTime(e.target.value)} />
+              <input type="range" min="5" max="30" value={formData.duration} onChange={handleTimeChange} />
             </div>
             <button className='btn' type='submit'>Generate</button>
           </form>
         </div>
         <div className="prompt-div">
-        {isLoading?<div>Loading...</div>:''}
-        {audioSrc && (
-          <audio controls src={audioSrc} />
-      )}
+          {isLoading ? <div>Loading...</div> : ''}
+          {audioSrc && (
+            <audio controls src={audioSrc} />
+          )}
         </div>
       </div>
     </section>
