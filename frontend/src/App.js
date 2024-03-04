@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Prompt from './pages/Prompt';
 import Genre from './pages/Genre';
 import Instrument from './pages/Instrument';
+import Login from './pages/Login';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/text_to_music" element={<Prompt />} />
           <Route path="/genre_to_music" element={<Genre />} />
           <Route path="/instrument_to_music" element={<Instrument />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>
     </div>
