@@ -30,6 +30,7 @@ export default function Genre() {
     e.preventDefault();
     console.log(formData);
     setisLoading(true)
+    setAudioSrc('')
     try {
       const response = await axios.post('http://localhost:5000/api/genre', 
         formData
