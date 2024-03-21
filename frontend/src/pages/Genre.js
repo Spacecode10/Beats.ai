@@ -3,12 +3,12 @@ import genresData from '../jsonFlies/genres.json';
 import axios from 'axios';
 
 export default function Genre() {
-  
+
   const [formData, setFormData] = useState({
     genres: [],
     duration: '10'
   });
-  const [isLoading,setisLoading]=useState(false)
+  const [isLoading, setisLoading] = useState(false)
   const [audioSrc, setAudioSrc] = useState('');
 
   const handleCheckboxChange = (e) => {
@@ -26,22 +26,22 @@ export default function Genre() {
     }
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(formData);
     setisLoading(true)
     setAudioSrc('')
     try {
-      const response = await axios.post('http://localhost:5000/api/genre', 
+      const response = await axios.post('http://localhost:5000/api/genre',
         formData
-      , {
-        responseType: 'blob',
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      });
+        , {
+          responseType: 'blob',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        });
       const url = window.URL.createObjectURL(new Blob([response.data]));
-      setAudioSrc(url); 
+      setAudioSrc(url);
       setisLoading(false)
     } catch (error) {
       console.error('Error fetching audio:', error);
@@ -86,10 +86,10 @@ export default function Genre() {
           </form>
         </div>
         <div className="prompt-div">
-        {isLoading?<div>Loading...</div>:''}
-        {audioSrc && (
-          <audio controls src={audioSrc} id='audiotag'/>
-      )}
+          {isLoading ? <div>Loading...</div> : ''}
+          {audioSrc && (
+            <audio controls src={audioSrc} id='audiotag' />
+          )}
         </div>
       </div>
     </section>
