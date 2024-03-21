@@ -6,6 +6,7 @@ import Prompt from './pages/Prompt';
 import Genre from './pages/Genre';
 import Instrument from './pages/Instrument';
 import Login from './pages/Login';
+import FilePrompt from './pages/FilePrompt';
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/text_to_music" element={<Prompt />} />
+          <Route path="/file_to_music" element={<FilePrompt />} />
           <Route path="/genre_to_music" element={<Genre />} />
           <Route path="/instrument_to_music" element={<Instrument />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/login" element={<Login />} /> */}
         </Routes>
       </BrowserRouter>
     </div>

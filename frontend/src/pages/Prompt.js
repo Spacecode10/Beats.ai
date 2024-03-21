@@ -7,7 +7,8 @@ export default function Prompt() {
 
   const [formData, setFormData] = useState({
     prompt: 'A retro melody with piano and sitar',
-    duration: '10'
+    duration: '10',
+    variations: '3'
   })
   const [isLoading, setisLoading] = useState(false)
   const [audioSrc, setAudioSrc] = useState('');
@@ -16,6 +17,7 @@ export default function Prompt() {
     e.preventDefault();
     console.log(formData);
     setisLoading(true)
+    setAudioSrc('')
     try {
       const response = await axios.post('http://localhost:5000/api/prompt',
         formData
@@ -42,10 +44,17 @@ export default function Prompt() {
       duration: newTime
     }));
   };
+  const handleVariationChange = (e) => {
+    const newVar = e.target.value;
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      variations: newVar
+    }));
+  };
   // -----------------------------------Speech to text--------------------------------------------------------------------
   const recognitionRef = useRef(null);
   const [isListening, setIsListening] = useState(false);
-  
+
   const toggleListening = (e) => {
     e.preventDefault();
     if (isListening) {
@@ -67,7 +76,7 @@ export default function Prompt() {
         .map(result => result.transcript)
         .join('');
       setFormData({ ...formData, prompt: transcript })
-      console.log("Speech to text:", transcript); 
+      console.log("Speech to text:", transcript);
     });
     recognitionRef.current.start();
   };
@@ -105,22 +114,35 @@ export default function Prompt() {
                 value={formData.prompt}
                 onChange={handleInputChange}
               />
-              <button onClick={toggleListening} disabled={isLoading? true:false}>{isListening ? <FaMicrophone /> : <FiMic />}</button>
+              <button onClick={toggleListening} disabled={isLoading ? true : false}>{isListening ? <FaMicrophone /> : <FiMic />}</button>
             </div>
-            <div className='duration-div'>
-              <h3>Duration</h3>
-              <span id="slider-value">{formData.duration} Sec</span>
+            <div className='option-section'>
+              <div className="dur-section">
+                <div className='duration-div'>
+                  <h3>Duration</h3>
+                  <span id="slider-value">{formData.duration} Sec</span>
+                </div>
+                <div className='slider-div'>
+                  <input type="range" min="5" max="30" value={formData.duration} onChange={handleTimeChange} />
+                </div>
+              </div>
+              <div className="var-section">
+                <div className='duration-div'>
+                  <h3>Variations</h3>
+                  <span id="slider-value">{formData.variations}</span>
+                </div>
+                <div className='slider-div'>
+                  <input type="range" min="1" max="4" value={formData.variations} onChange={handleVariationChange} />
+                </div>
+              </div>
             </div>
-            <div className='slider-div'>
-              <input type="range" min="5" max="30" value={formData.duration} onChange={handleTimeChange} />
-            </div>
-            <button className='btn' type='submit' disabled={isLoading? true:false}>Generate</button>
+            <button className='btn' type='submit' disabled={isLoading ? true : false}>Generate</button>
           </form>
         </div>
         <div className="prompt-div">
           {isLoading ? <div>Loading...</div> : ''}
           {audioSrc && (
-            <audio controls src={audioSrc} id='audiotag'/>
+            <audio controls src={audioSrc} id='audiotag' />
           )}
         </div>
       </div>

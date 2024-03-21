@@ -30,6 +30,7 @@ export default function Genre() {
     e.preventDefault();
     console.log(formData);
     setisLoading(true)
+    setAudioSrc('')
     try {
       const response = await axios.post('http://localhost:5000/api/genre', 
         formData
@@ -87,7 +88,7 @@ export default function Genre() {
         <div className="prompt-div">
         {isLoading?<div>Loading...</div>:''}
         {audioSrc && (
-          <audio controls src={audioSrc} />
+          <audio controls src={audioSrc} id='audiotag'/>
       )}
         </div>
       </div>

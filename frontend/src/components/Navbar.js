@@ -28,7 +28,7 @@ export default function Navbar() {
                         <ul>
                             <li><a href="#home" onClick={e => { navigate('/') }}>Home</a></li>
                             <li><a href="#create-section" onClick={e => { navigate('/') }}>Create Music</a></li>
-                            <li><a href="/login" onClick={e => { navigate('/login') }}>Login</a></li>
+                            {/* <li><a href="/login" onClick={e => { navigate('/login') }}>Login</a></li> */}
                         </ul>
                     </div>
                     {/* <button>
